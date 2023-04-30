@@ -29,8 +29,6 @@ Route::get('/', function () {
 
 
 
-
-
 // Route::get('/db', function () {
 
 //     $users=DB::table('Users')->insert([
@@ -43,8 +41,6 @@ Route::get('/', function () {
 //     ]);
 
 // });
-
-
 
 
    
@@ -75,33 +71,31 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function (){
 
-      Route::get('/users/login', function (){
-        
-        return view('admin.users.login');
-
-    });
-
-  
-
-    Route::get('/users/register', function (){
-
-        // $users=Users::all();
-        // dd($users);
-
-
-        return view('admin.users.register');
-           
-     });
+      Route::get('/users/userlist',[UsersController::class,'login']);
+      Route::get('/users/login',[UsersController::class,'login']);
+      Route::get('/users/register',  [UsersController::class,'register']) ;
+      Route::get('/users/storeregister',  [UsersController::class,'storeregister']) ;
+});
  
 
- // Route::post('/users/register', 'UsersController@register');
-    Route::post('/users/register', [UsersController::class,'register']);
+//  Route::delete('/users/delete/{UserID}',function($UserID){
+//     $user=Users::find($UserID);
+//     $user->delete();
+//     $session::flash('message','رکورد حذف شد ');
+//     return redirect('/ulist');
 
-    Route::get('users/list', function () {
+// });
 
-        $records=DB::table('Users')->orderby('UserID','desc')->get();
-        return view(' admin.users.userlist',["users"=>$records]);
-    });
+// Route::put('/users/edit/{UserID}',function($UserID){
+// $user=Users::find($UserID);
+// return view(' pages.edit ')->with('user',$user);
+ 
+// });
+    // Route::get('users/list', function () {
+
+    //     $records=DB::table('Users')->orderby('UserID','desc')->get();
+    //     return view(' admin.users.userlist',["users"=>$records]);
+    // });
 
     
 //     Route::delete('/delete/{id}', function ($id){
@@ -113,5 +107,5 @@ Route::prefix('admin')->group(function (){
 //         return redirect('admin/users/list');
 
 //  });
-});
+// });
 

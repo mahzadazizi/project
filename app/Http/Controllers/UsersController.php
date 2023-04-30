@@ -8,13 +8,30 @@ use App\Models\Users;
 
 
 class UsersController extends Controller
+
 {
-    public function register()
+  public function login()
+
+  {
+  
+   $articles=article::paginate(1);
+   return view('users/login' );
+  
+  }
+
+
+  public function register()
+
+  {
+    
+    return view('users/register' );
+
+
+  }
+
+
+    public function storeregister()
     {
-
-
-
-       
       $validator=validator::make(request()->all() ,
           [
             'UserName'=>'required|min:5|max:15',
