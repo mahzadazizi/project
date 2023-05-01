@@ -10,12 +10,26 @@ use App\Models\Users;
 class UsersController extends Controller
 
 {
+
+  
+  public function userlist()
+
+  {
+  
+   $records=Users::paginate(4);
+   return view('admin/users/userlist',['Users'=>$records]);
+
+  
+  
+  }
+
   public function login()
 
   {
   
-   $articles=article::paginate(1);
-   return view('users/login' );
+   
+    return view('admin/users/login' );
+
   
   }
 
@@ -24,7 +38,7 @@ class UsersController extends Controller
 
   {
     
-    return view('users/register' );
+    return view('admin/users/register' );
 
 
   }

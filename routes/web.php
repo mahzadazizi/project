@@ -71,7 +71,7 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function (){
 
-      Route::get('/users/userlist',[UsersController::class,'login']);
+      Route::get('/users/userlist',[UsersController::class,'userlist']);
       Route::get('/users/login',[UsersController::class,'login']);
       Route::get('/users/register',  [UsersController::class,'register']) ;
       Route::get('/users/storeregister',  [UsersController::class,'storeregister']) ;

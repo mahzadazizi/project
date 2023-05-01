@@ -21,8 +21,10 @@
 
 
     </tr>
-    @if(count($users))
-        @foreach($users  as $user)
+
+   
+      @if(count($Users))
+        @foreach($Users  as $user)
             <tr>
             <tr>
                 <td>{{$user->UserID}}</td>
@@ -30,13 +32,15 @@
                 <td>{{$user->UserName}}</td>
             </tr>
         @endforeach 
-    @endif
+     @endif
+
+
     </tbody>
 </table>
 
-{{--    @if(count($users))--}}
-{{--        {{$users->links()}}--}}
-{{--        @endif--}} 
+   @if(count($Users))
+       {{$Users->links()}}
+    @endif 
 
 <br>
 <br>
