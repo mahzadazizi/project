@@ -1,11 +1,13 @@
 <?php
 
+
+
 namespace App\Http\Controllers;
-
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 use App\Models\Users;
-
-
 
 class UsersController extends Controller
 
@@ -44,8 +46,8 @@ class UsersController extends Controller
   }
 
 
-    public function storeregister()
-    {
+  public function storeregister()
+  {
       $validator=validator::make(request()->all() ,
           [
             'UserName'=>'required|min:5|max:15',
@@ -57,42 +59,42 @@ class UsersController extends Controller
 
           if($validator->fails())
           {
-
                 return redirect()->back()->withErrors($validator);
           }
 
 
 
 
-      Users::create([
+      // Users::create([
 
 
-        'UserName'=> request('UserName'),
-        'Password'=> request('Password'),
-        'FirstName'=> request('FirstName'),
-        'LastName'=> request('LastName'),
-       ]);
-
-       return redirect('admin/users/register');
+      //   'UserName'=> request('UserName'),
+      //   'Password'=> request('Password'),
+      //   'FirstName'=> request('FirstName'),
+      //   'LastName'=> request('LastName'),
+      //  ]);
+     
+        
+      //  session::put("message","اطلاعات ثبت شد");
+      //  return redirect('admin/users/userlist');
 
 
 
        
-//            $users= new Users();
+           $users= new Users();
 
-//           $users->UserName=request('UserName');
-//           $users->Password=request('Password');
-//           $users->FirstName=request('FirstName');
-//           $users->LastName=request('LastName');
-//           $users->save();
+          $users->UserName=request('UserName');
+          $users->Password=request('Password');
+          $users->FirstName=request('FirstName');
+          $users->LastName=request('LastName');
+          $users->save();
 
-//            dd(request()->all());
-
-//      });
-
-
-      
-         
-    }
+        
+    
+        if ($users)
+        Session::put(['message','اطلاعات با موفقیت ثبت شد ']);
+        return redirect('admin/users/userlist');
+    
+      }
   
 }

@@ -3,21 +3,22 @@
 @section('content')
 
 
+<br>
+<br>
+@if(Session::has('message'))
+     <div style="direction:rtl" class:"alert " >
+          {{Session::get('message')}}
+     <div>
+@endif
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<table border="6" bgcolor="#b22222" class="table table-striped ">
-    <thead>
+<table   class="table table-striped ">
+
     <tr>
-        <th scope="col">user_id</th>
-        <th scope="col">role_id</th>
-        <th scope="col">UserName</th>
+        <td >user_id</td>
+        <td >role_id</td>
+        <td >UserName</td>
     </tr>
-    </thead>
-    <tbody>
+   
 
 
     </tr>
@@ -42,9 +43,5 @@
        {{$Users->links()}}
     @endif 
 
-<br>
-<br>
-<br>
-<br>
-<br>
+
 @endsection

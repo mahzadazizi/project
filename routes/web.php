@@ -1,10 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\validator;
-use App\Models\Users;
-use App\Http\Controllers\UsersController;
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Models\Users;
+use Illuminate\Support\Facades\validator;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,7 +75,7 @@ Route::prefix('admin')->group(function (){
       Route::get('/users/userlist',[UsersController::class,'userlist']);
       Route::get('/users/login',[UsersController::class,'login']);
       Route::get('/users/register',  [UsersController::class,'register']) ;
-      Route::get('/users/storeregister',  [UsersController::class,'storeregister']) ;
+      Route::post('/users/storeregister',  [UsersController::class,'storeregister']) ;
 });
  
 

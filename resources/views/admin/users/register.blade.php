@@ -21,7 +21,7 @@
   <main id="main">
     <section id="featured" class="featured">
       <div class="container">
-      <form style="margin-top:100px" method="POST" action="/admin/users/register">
+      <form style="margin-top:100px" method="POST" action="/admin/users/storeregister">
 
         @csrf
           <div class="form-group">
