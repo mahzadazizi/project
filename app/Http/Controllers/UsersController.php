@@ -92,7 +92,7 @@ class UsersController extends Controller
         
     
         if ($users)
-        Session::put(['message','اطلاعات با موفقیت ثبت شد ']);
+        session()->flash('message', 'عملیات با موفقیت انجام شد.');
         return redirect('admin/users/userlist');
     
       }
