@@ -18,7 +18,7 @@ class UsersController extends Controller
 
   {
   
-   $records=Users::paginate(4);
+   $records=Users::latest()->paginate(4);
    return view('admin/users/userlist',['Users'=>$records]);
 
   
