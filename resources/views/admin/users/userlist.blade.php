@@ -34,7 +34,7 @@
                 <td>{{$user->Role_ID}}</td>
                 <td>{{$user->UserName}}</td>
                 <td>
-                    <form action="admin/users/delete{{$users->id}}" method="post">
+                    <form action="admin/users/delete{{$user->id}}" method="post">
                            @csrf
                            @method("delete")
                            <button class="btn btn-danger btn_sm" > delete </button>
@@ -42,7 +42,7 @@
                     </form>
                 </td>
                 <td>
-                    <form action="admin/users/edit{{$users->id}}" method="post">
+                    <form action="admin/users/edit{{$user->id}}" method="post">
                            @csrf
                            @method("edite")
                            <button class="btn btn-danger btn_sm" > edite </button>

@@ -76,6 +76,8 @@ Route::prefix('admin')->group(function (){
       Route::get('/users/login',[UsersController::class,'login']);
       Route::get('/users/register',  [UsersController::class,'register']) ;
       Route::post('/users/storeregister',  [UsersController::class,'storeregister']) ;
+
+
       Route::delete("users/delete/{id}", function ($id)
        {
           $users=Users::find($id);
@@ -85,6 +87,8 @@ Route::prefix('admin')->group(function (){
           return redirect('/users/userlist');
        });
 
+
+       
        Route::post("users/edit/{id}", function ($id)
        {
           $users=Users::find($id);
